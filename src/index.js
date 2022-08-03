@@ -2,11 +2,11 @@ import { CssBaseline } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-// import Home from "./components/home";
+import Home from "./Layout.js/Home";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    {/* <Home /> */}
+    <Home />
     <CssBaseline />
     <App />
   </>
