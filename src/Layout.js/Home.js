@@ -2,18 +2,19 @@ import {
   Box,
   Button,
   InputAdornment,
-  makeStyles,
+  Link,
   Paper,
+  Stack,
   Typography,
 } from "@mui/material";
 import React from "react";
 import TextField, { textFieldClasses } from "@mui/material/TextField";
+import { width } from "@mui/system";
 
 const home = () => {
   return (
     <Box
       sx={{
-        // background: "white",
         padding: "20px",
         width: "400px",
         margin: "auto",
@@ -56,29 +57,35 @@ const home = () => {
             padding: "10px",
           }}
         >
-          {" "}
           Sign in with your email
         </Typography>
-        <TextField
-          required
-          id="outlined-required"
-          label="Email address"
-          defaultValue="example@mail.com"
-        />
-        <TextField
-          required
-          id="outlined-required"
-          label="Password"
-          defaultValue="Password123"
-          InputProps={{
-            endAdornment: <InputAdornment position="end">hide</InputAdornment>,
-          }}
-        />
-        <Typography>
-          <a href="#">Forget Password?</a>
+        <Stack direction="column" spacing={2} margin={3}>
+          <TextField
+            required
+            id="outlined-required"
+            label="Email address"
+            defaultValue="example@mail.com"
+            InputProps={{ readOnly: true }}
+          />
+          <TextField
+            required
+            id="outlined-required"
+            label="Password"
+            defaultValue="Password1234"
+            InputProps={{
+              readOnly: true,
+              endAdornment: (
+                <InputAdornment position="end">hide</InputAdornment>
+              ),
+            }}
+          />
+        </Stack>
+
+        <Typography margin={2} textAlign="left">
+          <Link>Forget Password</Link>
         </Typography>
-        <Button variant="contained">
-          <a href="#">Sign in</a>
+        <Button variant="contained" margin={2}>
+          <Link sx={{ color: "white" }}>Sign in</Link>
         </Button>
         <Typography
           variant="h6"
@@ -86,10 +93,10 @@ const home = () => {
             fontSize: "12px",
           }}
         >
-          By signing in, you are agreeing to our{" "}
-          <a href="#">
+          By signing in, you are agreeing to our
+          <Link>
             Terms & Conditions and <br /> Privacy Policy
-          </a>
+          </Link>
         </Typography>
       </Paper>
     </Box>

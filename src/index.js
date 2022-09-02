@@ -1,13 +1,17 @@
-import { CssBaseline } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createMuiTheme,ThemeProvider } from "styled-components";
 import App from "./App";
-import Home from "./Layout.js/Home";
+
+
+
+const theme
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <Home />
-    <CssBaseline />
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </>
 );
