@@ -37,7 +37,7 @@ const ResetPassword = () => {
         </Stack>
 
         <Typography variant="caption">
-          Enter the email address associated with your account
+          Enter the email address associated with your account.
         </Typography>
         <Link style={{ textDecoration: "none" }} to="/resetemail">
           <Button variant="contained">Reset Password</Button>
