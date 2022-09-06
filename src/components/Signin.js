@@ -1,24 +1,36 @@
-import React from "react";
 import {
-  TextField,
-  Box,
   Button,
   InputAdornment,
   Paper,
+  Stack,
   Typography,
-  Link,
 } from "@mui/material";
+import { Link } from "react-router-dom";
+import React from "react";
+import TextField, { textFieldClasses } from "@mui/material/TextField";
 
-const signin = () => {
+const Signin = (child) => {
   return (
-    <Box>
-      <Paper>
-        <Typography>Sign in with your email</Typography>
+    <Paper
+      sx={{
+        background: "white",
+      }}
+    >
+      <Typography
+        sx={{
+          textAlign: "left",
+          padding: "10px",
+        }}
+      >
+        Sign in with your email
+      </Typography>
+      <Stack direction="column" spacing={2} margin={3}>
         <TextField
           required
           id="outlined-required"
           label="Email address"
           defaultValue="example@mail.com"
+          InputProps={{ readOnly: true }}
         />
         <TextField
           required
@@ -26,29 +38,39 @@ const signin = () => {
           label="Password"
           defaultValue="Password1234"
           InputProps={{
+            readOnly: true,
             endAdornment: <InputAdornment position="end">hide</InputAdornment>,
           }}
         />
-        <Typography margin={2}>
-          <Link>Forget password?</Link>
-        </Typography>
-        <Button variant="contained">
-          <Link>Sign in</Link>
-        </Button>
-        <Typography
-          variant="h6"
-          sx={{
-            fontSize: "12px",
-          }}
+      </Stack>
+
+      <Typography margin={2} textAlign="left">
+        <Link to="/resetpassword" style={{ textDecoration: "none" }}>
+          Forget Password
+        </Link>
+      </Typography>
+      <Link style={{ textDecoration: "none" }} to="/">
+        <Button
+          style={{ textDecoration: "none" }}
+          variant="contained"
+          margin={2}
         >
-          By signing in, you are agreeing to our{" "}
-          <Link>
-            Terms & Conditions and <br /> Privacy Policy
-          </Link>
-        </Typography>
-      </Paper>
-    </Box>
+          Sign in
+        </Button>
+      </Link>
+      <Typography
+        variant="h6"
+        sx={{
+          fontSize: "12px",
+        }}
+      >
+        By signing in, you are agreeing to our
+        <Link style={{ textDecoration: "none" }} to="/">
+          Terms & Conditions and <br /> Privacy Policy
+        </Link>
+      </Typography>
+    </Paper>
   );
 };
 
-export default signin;
+export default Signin;

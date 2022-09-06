@@ -2,29 +2,17 @@ import React from "react";
 import {
   Box,
   Button,
-  InputAdornment,
-  Link,
   Paper,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
 import { textTransform } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
   return (
-    <Box
-      sx={{
-        padding: "20px",
-        width: "400px",
-        margin: "auto",
-        position: "absolute",
-        transform: "translate(-50%, -50%)",
-        top: "50%",
-        left: "50%",
-        textAlign: "center",
-      }}
-    >
+    <Box>
       <Paper
         sx={{
           background: "white",
@@ -51,19 +39,14 @@ const ResetPassword = () => {
         <Typography variant="caption">
           Enter the email address associated with your account
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            margin: 2,
-            width: "90%",
-            textTransform: "none",
-          }}
-        >
-          <Link sx={{ color: "white" }}>Reset Password</Link>
-        </Button>
+        <Link style={{ textDecoration: "none" }} to="/resetemail">
+          <Button variant="contained">Reset Password</Button>
+        </Link>
         <Typography sx={{ textAlign: "left", padding: "15px" }}>
           {" "}
-          <Link sx={{ textDecoration: "none" }}>Back to Sign in </Link>
+          <Link style={{ textDecoration: "none" }} to="/signin">
+            Back to Sign in{" "}
+          </Link>
         </Typography>
       </Paper>
     </Box>

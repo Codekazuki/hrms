@@ -1,55 +1,41 @@
-import { Box, Container, Typography } from "@mui/material";
-import Image from "./images/bgIllustration.svg";
+import React from "react";
+import SetResetPassword from "./components/SetResetPassword";
+import ResetPassword from "./components/ResetPassword";
+import Signin from "./components/Signin";
+import AuthLayout from "./Layout/AuthLayout";
+import ResetEmail from "./components/ResetEmail";
+import PasswordResetLogo from "./components/PasswordResetLogo";
+import PasswordResetSuccess from "./components/PasswordResetSuccess";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function App({ children }) {
+const theme = createTheme({
+  typography: {
+    fontFamily: "Ubuntu",
+    fontWeightLight: 400,
+    fontWeightBold: 700,
+  },
+});
+
+function App() {
   return (
-    <Container
-      sx={{
-        maxWidth: "100% !important",
-        height: "100vh",
-        background: "#0050c8",
-        backgroundImage: `url(${Image})`,
-        backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "bottom",
-        padding: "20px",
-      }}
-    >
-      <Box
-        sx={{
-          width: "100%",
-          margin: "auto",
-          position: "absolute",
-          transform: "translate(-50%, -50%)",
-          top: "50%",
-          left: "50%",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          variant="h3"
-          sx={{
-            color: "#E5E5E5",
-          }}
-        >
-          HrPay
-        </Typography>
-        <Typography
-          sx={{
-            color: "#B3CDFF",
-            weight: "400",
-            fontSize: "16px",
-            lineHeight: "24px",
-            // font: "Ubuntu",
-          }}
-        >
-          This is dummy text that will be replaced later by <br />
-          proper content. The replacement text shouldn't be <br />
-          more than three lines
-        </Typography>
-      </Box>{" "}
-      {children}
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<AuthLayout />}>
+            <Route path="/resetemail" element={<ResetEmail />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
+            <Route path="/setresetpassword" element={<SetResetPassword />} />
+            <Route
+              path="/passwordresetsuccess"
+              element={<PasswordResetSuccess />}
+            />
+          </Route>
+          <Route path="/passwordresetlogo" element={<PasswordResetLogo />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

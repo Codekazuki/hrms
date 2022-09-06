@@ -1,22 +1,12 @@
-import { Box, Link, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { Container } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const ResetEmail = () => {
   return (
-    <Paper
-      sx={{
-        padding: "20px",
-        width: "400px",
-        margin: "auto",
-        position: "absolute",
-        transform: "translate(-50%, -50%)",
-        top: "50%",
-        left: "50%",
-        textAlign: "center",
-      }}
-    >
+    <Paper>
       <Box>
         <MarkEmailReadIcon />
       </Box>
@@ -24,10 +14,15 @@ const ResetEmail = () => {
       <Typography>
         To complete password reset,please click on <br />
         the reset password button in the email we sent <br /> to{" "}
-        <Link>example@mail.com</Link>{" "}
+        <Link style={{ textDecoration: "none" }} to="/passwordresetlogo">
+          example@mail.com
+        </Link>{" "}
       </Typography>
       <Typography variant="caption">
-        Didn't receive the password reset email? <Link>Resend</Link>
+        Didn't receive the password reset email?{" "}
+        <Link style={{ textDecoration: "none" }} to="/passwordresetlogo">
+          Resend
+        </Link>
       </Typography>
       <Typography
         sx={{
@@ -36,11 +31,7 @@ const ResetEmail = () => {
         }}
       >
         {" "}
-        <Link
-          sx={{
-            textDecoration: "none",
-          }}
-        >
+        <Link style={{ textDecoration: "none" }} to="/signin">
           Back to Sign in
         </Link>{" "}
       </Typography>

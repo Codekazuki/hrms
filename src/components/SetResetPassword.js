@@ -3,27 +3,17 @@ import {
   Box,
   Button,
   InputAdornment,
-  Link,
   Paper,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import { Link } from "react-router-dom";
 
 const SetResetPassword = () => {
   return (
-    <Box
-      sx={{
-        padding: "20px",
-        width: "400px",
-        margin: "auto",
-        position: "absolute",
-        transform: "translate(-50%, -50%)",
-        top: "50%",
-        left: "50%",
-        textAlign: "center",
-      }}
-    >
+    <Box>
       <Paper
         sx={{
           background: "white",
@@ -32,12 +22,12 @@ const SetResetPassword = () => {
         <Typography
           sx={{
             textAlign: "left",
-            padding: "15px",
+            padding: "1rem",
           }}
         >
           Reset password
         </Typography>
-        <Stack direction="column" spacing={2} margin={3}>
+        <Stack direction="column" spacing={2} margin={2}>
           <TextField
             required
             id="outlined-required"
@@ -46,20 +36,42 @@ const SetResetPassword = () => {
             InputProps={{ readOnly: true }}
           />
         </Stack>
+        <Stack direction="row" spacing={1} margin={2}>
+          <TaskAltIcon fontSize="small" />
+          <Typography>Uppercase</Typography>
+          <TaskAltIcon fontSize="small" />
+          <Typography>Lowercase</Typography>
+          <TaskAltIcon fontSize="small" />
+          <Typography>At least 1 number</Typography>
+        </Stack>
+        <Stack direction="row">
+          <TaskAltIcon fontSize="small" />
+          <Typography>8 or more characters</Typography>
+          <TaskAltIcon fontSize="small" />
+          <Typography>special character</Typography>
+        </Stack>
 
-        <Button
-          variant="contained"
-          sx={{
-            margin: 2,
-            width: "90%",
-            textTransform: "none",
-          }}
+        <Link
+          style={{ textDecoration: "none" }}
+          to="/passwordresetsuccess"
+          sx={{ color: "white" }}
         >
-          <Link sx={{ color: "white" }}>Reset Password</Link>
-        </Button>
+          <Button
+            variant="contained"
+            sx={{
+              margin: 2,
+              width: "90%",
+              textTransform: "none",
+            }}
+          >
+            Reset Password
+          </Button>
+        </Link>
         <Typography sx={{ textAlign: "left", padding: "15px" }}>
           {" "}
-          <Link sx={{ textDecoration: "none" }}>Back to Sign in </Link>
+          <Link style={{ textDecoration: "none" }} to="/signin">
+            Back to Sign in{" "}
+          </Link>
         </Typography>
       </Paper>
     </Box>
