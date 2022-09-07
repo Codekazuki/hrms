@@ -8,6 +8,7 @@ import PasswordResetLogo from "./components/PasswordResetLogo";
 import PasswordResetSuccess from "./components/PasswordResetSuccess";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import OrgDashBoard from "./Organisation/OrgDashBoard";
 
 const theme = createTheme({
   typography: {
@@ -33,6 +34,7 @@ function App() {
             />
           </Route>
           <Route path="/passwordresetlogo" element={<PasswordResetLogo />} />
+          <Route path="/orgdashboard" element={<OrgDashBoard />} />
         </Routes>
       </Router>
     </ThemeProvider>

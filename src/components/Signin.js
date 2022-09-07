@@ -65,7 +65,7 @@ const Signin = (child) => {
         }}
       >
         By signing in, you are agreeing to our
-        <Link style={{ textDecoration: "none" }} to="/">
+        <Link style={{ textDecoration: "none" }} to="/orgdashboard">
           Terms & Conditions and <br /> Privacy Policy
         </Link>
       </Typography>

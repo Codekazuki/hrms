@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import Image from "../images/bgIllustration.svg";
+import Image from "../assets/bgIllustration.svg";
 import { Outlet } from "react-router-dom";
 
 function AuthLayout({ children }) {
